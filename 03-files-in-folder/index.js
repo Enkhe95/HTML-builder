@@ -21,7 +21,12 @@ fs.readdir(folderPath, (err, files) => {
         const fileSizeInKb = stats.size / 1024;
         const fileExtension = path.extname(filePath).replace(".", "");
 
-        console.log(`${file}-${fileExtension}-${fileSizeInKb.toFixed(3)}kb`);
+        console.log(
+          `${file.replace(
+            /\.[^/.]+$/,
+            ""
+          )}-${fileExtension}-${fileSizeInKb.toFixed(3)}kb`
+        );
       }
     });
   });
